@@ -19,7 +19,7 @@ public class PlayerLinkedList {
     }
 
     //Create a size variable that determines how many elements are present in your Linked List
-    public void getSize()
+    public int getSize()
     {
         int size = 0;
         PlayerNode count = head;
@@ -29,23 +29,19 @@ public class PlayerLinkedList {
            size++;
            count = count.getNextPlayer();
        }
-
-      System.out.print("List Size: " + size);
-
+        return size;
     }
 
     //Create a CONTAINS() and INDEXOF() similar to ArrayList
-
-    public void listContains()
+    public boolean listContains(Player player)
     {
         //Look if the list contains player with the name HPDeskjet
-
         boolean target = false;
         PlayerNode count = head;
 
-        while (count != null && !target)
+        while (count != null)
         {
-            if(count.getPlayer().getName() == "HPDeskjet")
+            if(count.getPlayer().getName() == player.getName())
             {
                 target = true;
                 break;
@@ -55,21 +51,18 @@ public class PlayerLinkedList {
                 count = count.getNextPlayer();
             }
         }
-
-        System.out.print("\nDoes the list have a player named HPDeskjet?: " + target);
-
+        return target;
     }
 
-    public void indexOf()
+    public int indexOf(Player player)
     {
-        //Occurence of a player with level 205 and up
-
+        //Occurrence of a player with level 205
         int index = 0;
         PlayerNode count = head;
 
         while (count != null)
         {
-            if (count.getPlayer().getLevel() >= 200)
+            if (count.getPlayer().getName() == player.getName())
             {
                 index++;
                 break;
@@ -78,10 +71,7 @@ public class PlayerLinkedList {
             index++;
             count = count.getNextPlayer();
         }
-
-        System.out.print("\nWhich player has a level greater or equal to 200?: " + index);
-
-
+        return index;
     }
 
     public void printList() {
