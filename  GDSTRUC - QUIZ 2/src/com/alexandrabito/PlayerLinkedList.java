@@ -35,20 +35,19 @@ public class PlayerLinkedList {
     //Create a CONTAINS() and INDEXOF() similar to ArrayList
     public boolean listContains(Player player)
     {
-        //Look if the list contains player with the name HPDeskjet
         boolean target = false;
-        PlayerNode count = head;
+        PlayerNode current = head;
 
-        while (count != null)
+        while (current != null)
         {
-            if(count.getPlayer().getName() == player.getName())
+            if(current.getPlayer().equals(player))
             {
                 target = true;
                 break;
             }
             else
             {
-                count = count.getNextPlayer();
+                current = current.getNextPlayer();
             }
         }
         return target;
@@ -56,20 +55,18 @@ public class PlayerLinkedList {
 
     public int indexOf(Player player)
     {
-        //Occurrence of a player with level 205
         int index = 0;
-        PlayerNode count = head;
+        PlayerNode current = head;
 
-        while (count != null)
+        while (current != null)
         {
-            if (count.getPlayer().getName() == player.getName())
+            if (current.getPlayer().equals(player))
             {
                 index++;
                 break;
             }
-
             index++;
-            count = count.getNextPlayer();
+            current = current.getNextPlayer();
         }
         return index;
     }
